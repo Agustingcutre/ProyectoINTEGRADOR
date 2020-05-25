@@ -3,28 +3,25 @@ module.exports = function(sequelize, dataTypes) {
     
     let cols = {
     
-        id: {
-            type: dataTypes.INTEGER,
-            primaryKey: true
-        },
+    
         nombreCompleto: { 
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
     
         },
         email: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
     
         },
         password: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
     
         },
         fechaNacimiento: {
-            type: dataTypes.DATE
+            type: dataTypes.DATE,
     
         },
         fechaDeCreacion: {
-            type: dataTypes.DATE
+            type: dataTypes.DATE,
     
         },
     }

@@ -29,7 +29,7 @@ registrarUsuario : function(req,res) {
     db.usuarios.create({
         nombreCompleto: req.body.nombreCompleto,
         email: req.body.email,
-        passsword: req.body.password,
+        password: req.body.password,
         fechaNacimiento: req.body.fechaNacimiento,
     });
     res.redirect("/")
