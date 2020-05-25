@@ -67,12 +67,16 @@
     color: rgba(133, 11, 11, 0.863);
     line-height: 1.6;
        background-image:url("/images/colorFondo.png");
+
+    background-color: rgba(133, 11, 11, 0.863);
   }
+ 
   
   
   
   /* Uso VH UNIT para acomodar imagen */
   #showcase {
+    width: 97.3%;
     background-image: url(/images/fondo.jpg);
     background-size: cover;
     background-position: center;
@@ -84,6 +88,7 @@
     text-align: center;
     padding: 0 20px;
     line-height: 1.2;
+    margin-top: 0px;
   }
   
   #showcase h1 {
@@ -272,4 +277,10 @@
         width: 100%;
       }
   
+  }
+  @media (min-width: 0px) and (max-width: 450px){
+      #showcase {
+        width: 90%;
+      }
+     
   }
