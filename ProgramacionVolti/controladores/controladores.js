@@ -6,6 +6,7 @@ let op = db.sequelize.Op;
 
 const controladores = {
 
+  
     listaGeneros : function (req,res) {
         res.render('listaGeneros')
     },

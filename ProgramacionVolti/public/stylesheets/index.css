@@ -239,6 +239,15 @@
   a:hover {
     color: black;
   }
+
+  #login {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: black;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+  }
   
   
   /* aca va a venir los tamaños para cada pagina segun computadora
@@ -284,3 +293,6 @@
       }
      
   }
+
+
+  
