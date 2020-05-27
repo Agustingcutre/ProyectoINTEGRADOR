@@ -17,6 +17,8 @@ router.get("/registrarse", controladores.registrarse);
 router.post("/registrarse", controladores.registrarUsuario);
 router.get("/buscadorDeUsuarios", controladores.buscadorDeUsuarios);
 router.get("/misResenas", controladores.misResenas);
+router.get("/login", controladores.login);
+router.post("/login", controladores.usuarioLogin);
 
 
 module.exports = router;

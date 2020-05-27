@@ -41,7 +41,13 @@ registrarUsuario : function(req,res) {
     },
     misResenas : function(req,res) {
         res.render("misResenas")
-    }
+    },
+    login : function(req,res) {
+        res.render("login")
+    },
+    usuarioLogin : function(req,res) {
+        res.render("misResenas")
+    },
 
 }
 
