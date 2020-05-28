@@ -1,6 +1,7 @@
 const db = require('../database/models');
 let sequelize = db.sequelize;
 let op = db.sequelize.Op;
+let moduloLogin = require('../modulo-login');
 
 
 
@@ -40,6 +41,9 @@ registrarUsuario : function(req,res) {
         res.render("buscadorDeUsuarios")
     },
     misResenas : function(req,res) {
+        db.resenas.create({
+            
+        })
         res.render("misResenas")
     },
     login : function(req,res) {

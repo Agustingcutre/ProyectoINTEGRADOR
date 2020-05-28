@@ -23,8 +23,8 @@
       <a href="/buscadorAvanzado">Buscador Avanzado</a>
       <a href="/registrarse">Registrarse</a>
       <a href="/buscadorDeUsuarios">Buscador De Usuarios</a>
-      <a href="/misResenas">Mis Reseñas</a>
-      <a href="/login" id="login"> Login </a>
+      <a href="/login">Mis Reseñas</a>
+      <a href="#" id="login"> Login </a>
       <!-- <a style="margin-left: 100px; margin-top: 10px;" href="#" id="search-"> <input type="text" placeholder="Search.."></a> -->
       <!-- <div class="contenedorBuscador"> -->
        <a > <form method="get" name="buscar" action="/buscador" class="buscar" id="buscar2">
@@ -99,6 +99,36 @@
       </div>
   </div>
 </section>
+
+
+<h1>Escribi una Reseña</h1>
+   <form action="/misResenas" method="POST">
+
+<div> 
+    <label for="">Email</label>
+    <input type="email" name="email">
+    
+</div>
+<div> 
+    <label for="">Contrasena</label>
+    <input type="password" name="password">
+    
+</div>
+<div> 
+  <label for="">Reseña</label>
+  <input type="text" name="Reseña">
+
+</div>
+<div> 
+  <label for="">Puntaje</label>
+  <input type="number" name="nombreCompleto">
+
+</div>
+<button type="submit">Post</button>
+
+
+</form>
+
 
       <section>
           <section id="section-a">
