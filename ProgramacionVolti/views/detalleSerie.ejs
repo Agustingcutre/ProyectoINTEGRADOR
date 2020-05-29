@@ -153,31 +153,33 @@
 </section>
 
 
-<h1>Escribi una Reseña</h1>
-   <form action="/misResenas" method="POST">
+<h1>Crear Reseña  </h1>
+<form class="logIn" name="crearResenia" action="/crearResena" method="post">
 
-<div> 
-    <label for="">Email</label>
-    <input type="email" name="email">
-    
-</div>
-<div> 
-    <label for="">Contrasena</label>
-    <input type="password" name="password">
-    
-</div>
-<div> 
-  <label for="">Reseña</label>
-  <input type="text" name="Reseña">
+  <p><input class="email" type="email" name="email" value="" placeholder="Escriba su email"></p>
+  <p><input type="password" name="password" placeholder="Escriba su contraseña"></p>
+  <p> <textarea name="resena" id="" cols="50" rows="15" placeholder="Escriba su reseña aquí"></textarea></p>
+  <p><label for="Puntaje">Puntaje:</label></p>
+  <p>  <select name="Puntaje">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+  </p>
+ 
+  
+  
+  
+ 
 
-</div>
-<div> 
-  <label for="">Puntaje</label>
-  <input type="number" name="nombreCompleto">
-
-</div>
-<button type="submit">Post</button>
-
+  <p><button type="submit" class="iniciarSesion" >Crear reseña</button></p>
 
 </form>
 

@@ -41,6 +41,12 @@ registrarUsuario : function(req,res) {
     buscadorDeUsuarios : function(req,res) {
         res.render("buscadorDeUsuarios")
     },
+    crearResena : function(req,res) {
+        db.resenas.create({
+            resena: req.body.resena,
+            puntaje: req.body.puntaje,
+        })
+    },
     misResenas : function(req,res) {
         res.render("misResenas")
     },
