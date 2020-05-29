@@ -32,6 +32,13 @@ module.exports = function(sequelize, dataTypes) {
     }
     
     let usuarios = sequelize.define(alias,cols,config);
+
+   usuarios.associate = function(models) {
+        usuarios.hasMany(models.resenas, {
+            as:"resenas",
+            foreignKey: "usuarioID",
+        });
+    }
     
     return usuarios;
     }

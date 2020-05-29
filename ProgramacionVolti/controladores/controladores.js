@@ -2,6 +2,7 @@ const db = require('../database/models');
 let sequelize = db.sequelize;
 let op = db.sequelize.Op;
 let moduloLogin = require('../modulo-login');
+let bcrypt = require("../node_modules/bcryptjs");
 
 
 
@@ -27,32 +28,54 @@ const controladores = {
         res.render('registrarse')
     },
 registrarUsuario : function(req,res) {
+    let passEncriptada = bcrypt.hashSync(req.body.password, 10);
     
     db.usuarios.create({
         nombreCompleto: req.body.nombreCompleto,
         email: req.body.email,
-        password: req.body.password,
+        password: passEncriptada,
         fechaNacimiento: req.body.fechaNacimiento,
     });
     res.redirect("/")
-    console.log(req.body)
 },
     buscadorDeUsuarios : function(req,res) {
         res.render("buscadorDeUsuarios")
     },
     misResenas : function(req,res) {
-        db.resenas.create({
-            
-        })
         res.render("misResenas")
     },
     login : function(req,res) {
         res.render("login")
     },
     usuarioLogin : function(req,res) {
-        res.render("misResenas")
-    },
+      moduloLogin.validar(req.body.email, req.body.password)
+      .then(resultados=>{
+          if(compareSync( req.body.password,resultados.password)){
+            db.Resena.findAll({
+                where: [
+                    {id : UsuarioID}
+                ]
+            })
+            .then(resultados => {
+                res.render("misResenas")
 
+            })
+
+          //  buscar TODAS las reseñas DNDE el id del usuario sea igual al que te trajiste en resultados
+          //despues de la consulta tenes otro then donde vas a definir que renderizas y que datos le envias a esta vista
+              //return resenas;
+            res.render("misResenas")
+        }
+        else {
+            return false
+        }
+      
+        
+    
+    })
+    
+
+}
 }
 
 module.exports = controladores;

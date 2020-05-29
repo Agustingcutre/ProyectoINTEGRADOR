@@ -27,11 +27,16 @@ let moduloLogin = {
         return db.Usuario.findOne({
             where:{
                 email:email,
-                password: pass
+                
             },
         })
         .then(results=>{
-            return results;
+            if(compareSync(pass,resultados.password)){
+                return results;
+            }
+            else {
+                return false
+            }
         })
     }
 }

@@ -40,5 +40,12 @@ let config = {
 
 let resenas = sequelize.define(alias,cols,config);
 
+resenas.associate = function(models) {
+    resenas.belongsTo(models.usuarios, {
+        as:"usuario",
+        foreignKey: "usuarioID",
+    });
+}
+
 return resenas;
 }
