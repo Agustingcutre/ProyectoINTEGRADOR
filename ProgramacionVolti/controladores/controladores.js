@@ -19,7 +19,8 @@ const controladores = {
         res.render('buscadorAvanzado')
     },
     detalleSerie : function (req,res) {
-        res.render('detalleSerie')
+        let idPeli = req.query.idPeli
+        res.render('detalleSerie', {idPeli: idPeli})
     },
     buscador : function (req,res) {
         res.render('buscador')
@@ -42,46 +43,33 @@ registrarUsuario : function(req,res) {
         res.render("buscadorDeUsuarios")
     },
     crearResena : function(req,res) {
-        db.resenas.create({
-            resena: req.body.resena,
-            puntaje: req.body.puntaje,
+        moduloLogin.validar(req.body.email, req.body.password)
+        .then(function(resultado){
+            db.resenas.create({
+                usuarioID: resultado.id,
+                resena: req.body.resena,
+                puntaje: req.body.puntaje,
+                fechaDeCreacion: db.sequelize.literal("CURRENT_DATE"),
+                fechaDeActualizacion: db.sequelize.literal("CURRENT_DATE"),
+                peliculaID: req.body.idPeli,
+            })
+          
+
+        })
+        .then(function(){
+            res.redirect("/")
         })
     },
     misResenas : function(req,res) {
         res.render("misResenas")
     },
     login : function(req,res) {
-        res.render("login")
+        res.render("misResenasLogin")
     },
-    usuarioLogin : function(req,res) {
-      moduloLogin.validar(req.body.email, req.body.password)
-      .then(resultados=>{
-          if(compareSync( req.body.password,resultados.password)){
-            db.Resena.findAll({
-                where: [
-                    {id : UsuarioID}
-                ]
-            })
-            .then(resultados => {
-                res.render("misResenas")
-
-            })
-
-          //  buscar TODAS las reseñas DNDE el id del usuario sea igual al que te trajiste en resultados
-          //despues de la consulta tenes otro then donde vas a definir que renderizas y que datos le envias a esta vista
-              //return resenas;
-            res.render("misResenas")
-        }
-        else {
-            return false
-        }
-      
-        
     
-    })
     
 
-}
+
 }
 
 module.exports = controladores;

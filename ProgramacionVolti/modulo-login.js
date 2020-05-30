@@ -13,7 +13,7 @@ let moduloLogin = {
     },
 
     buscarPorEmail: function (email){
-        return db.Usuario.findOne({
+        return db.usuarios.findOne({
             where: {
                 email:email
             }
@@ -24,19 +24,14 @@ let moduloLogin = {
     },
 
     validar: function (email, pass) {
-        return db.Usuario.findOne({
+        return db.usuarios.findOne({
             where:{
                 email:email,
-                
+                password: pass
             },
         })
-        .then(results=>{
-            if(compareSync(pass,resultados.password)){
-                return results;
-            }
-            else {
-                return false
-            }
+        .then(resultado=>{
+            return resultado;
         })
     }
 }

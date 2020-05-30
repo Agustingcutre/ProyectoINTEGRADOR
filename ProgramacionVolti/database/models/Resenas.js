@@ -5,7 +5,8 @@ let cols = {
 
     id: {
         type: dataTypes.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true,
     },
     peliculaID: { 
         type: dataTypes.INTEGER
@@ -35,7 +36,7 @@ let cols = {
 
 let config = {
     tableName: "resenas",
-    timestamps: true,
+    timestamps: false,
 }
 
 let resenas = sequelize.define(alias,cols,config);

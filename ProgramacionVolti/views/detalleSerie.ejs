@@ -155,12 +155,12 @@
 
 <h1>Crear Reseña  </h1>
 <form class="logIn" name="crearResenia" action="/crearResena" method="post">
-
+  <input type="hidden" name="idPeli" value="<%=idPeli%>">
   <p><input class="email" type="email" name="email" value="" placeholder="Escriba su email"></p>
   <p><input type="password" name="password" placeholder="Escriba su contraseña"></p>
   <p> <textarea name="resena" id="" cols="50" rows="15" placeholder="Escriba su reseña aquí"></textarea></p>
-  <p><label for="Puntaje">Puntaje:</label></p>
-  <p>  <select name="Puntaje">
+  <p><label for="puntaje">Puntaje:</label></p>
+  <p>  <select name="puntaje">
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -179,7 +179,7 @@
   
  
 
-  <p><button type="submit" class="iniciarSesion" >Crear reseña</button></p>
+  <p><button type="submit"  >Crear reseña</button></p>
 
 </form>
 

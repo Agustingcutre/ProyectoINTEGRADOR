@@ -20,10 +20,7 @@ module.exports = function(sequelize, dataTypes) {
             type: dataTypes.DATE,
     
         },
-        fechaDeCreacion: {
-            type: dataTypes.DATE,
-    
-        },
+        
     }
     
     let config = {
