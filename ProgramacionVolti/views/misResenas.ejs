@@ -95,7 +95,12 @@
 
     
   
-     
+    <h1>Estas son tus reviews:</h1>
+    <ul>
+      <% for( i = 0; i < resultados.length; i++){ %>
+        <li><a href="/detalleSerie?idPeli=<%=resultados[i].peliculaID%>"> <%=resultados[i].resena%></a> Puntaje: <%=resultados[i].puntaje%></li>
+      <%}%>
+    </ul>
   
   
      
