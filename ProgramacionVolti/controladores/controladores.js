@@ -63,6 +63,19 @@ registrarUsuario : function(req,res) {
     misResenas : function(req,res) {
         res.render("misResenas")
     },
+    editarResena : function(req,res) {
+        db.resena.findOne({
+            where: [
+                {id : req.params.id}
+            ]
+        })
+        .then(resultados =>{
+            res.render("editarResena", {resultados : resultados})
+        })
+
+
+
+    },
     login : function(req,res) {
         res.render("misResenasLogin")
     },
@@ -81,10 +94,7 @@ registrarUsuario : function(req,res) {
                   res.render("misResenas", {resultados: resultados})
   
               })
-  
-            //  buscar TODAS las reseñas DNDE el id del usuario sea igual al que te trajiste en resultados
-            //despues de la consulta tenes otro then donde vas a definir que renderizas y que datos le envias a esta vista
-                //return resenas;
+
               
           
            
