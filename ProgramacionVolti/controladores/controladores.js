@@ -63,7 +63,7 @@ registrarUsuario : function(req,res) {
     misResenas : function(req,res) {
         res.render("misResenas")
     },
-    editarResena : function(req,res) {
+    verEditarResena : function(req,res) {
         db.resena.findOne({
             where: [
                 {id : req.params.id}
@@ -72,6 +72,12 @@ registrarUsuario : function(req,res) {
         .then(resultados =>{
             res.render("editarResena", {resultados : resultados})
         })
+
+
+
+    },
+    confirmarEditarResena : function(req,res) {
+       
 
 
 

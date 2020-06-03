@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-       <link rel="stylesheet" href="/stylesheets/reviews.css" type="text/css">
+       <link rel="stylesheet" href="/stylesheets/reseñas.css" type="text/css">
        <script src="/javascripts/index.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit.min.js"></script>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.5/js/uikit-icons.min.js"></script>
@@ -92,18 +92,26 @@
 
     
   
-    <h1>Estas son tus reviews:</h1>
-    <div class="Reviews">
-      <div>
-        <% for( i = 0; i < resultados.length; i++){ %>
-          <div> <%=resultados[i].resena%> </div>
-          <div>Puntaje: <%=resultados[i].puntaje%></div>
-          <div><a href="/detalleSerie?idPeli=<%=resultados[i].peliculaID%>"> Pelicula</a> </div>
-          <div><a href="/misResenas/Edit"> Edit</a> </div>
-          <div><a href="/"> Delete</a> </div>
-        <%}%>
-        </div>
-    </div>
+  
+    <% if(resultados.length == 0) { %>
+      <h1>Todavia no tenes reseñas</h1>
+      <p>Ve a la pelicula que quieras y haz una!</p>
+      
+        <% } else {  %> 
+          <h1>Estas son tus reviews:</h1>
+          <div class="Reviews">
+            <div>
+              <% for( i = 0; i < resultados.length; i++){ %>
+                <div> <%=resultados[i].resena%> </div>
+                <div>Puntaje: <%=resultados[i].puntaje%></div>
+                <div><a href="/detalleSerie?idPeli=<%=resultados[i].peliculaID%>"> Pelicula</a> </div>
+                <div><a href="/Editar/:id"> Edit</a> </div>
+                <div><a href="/Delete/<%=resultados[i].id%>"> Delete</a> </div>
+              <%}%>
+              </div>
+          </div>
+      <%  }%>
+ 
     
     
     

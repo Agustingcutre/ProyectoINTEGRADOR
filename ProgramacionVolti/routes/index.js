@@ -18,7 +18,8 @@ router.post("/registrarse", controladores.registrarUsuario);
 router.get("/buscadorDeUsuarios", controladores.buscadorDeUsuarios);
 router.get("/misResenas", controladores.misResenas);
 router.post("/crearResena", controladores.crearResena);
-router.get("/misResenas/Edit", controladores.editarResena);
+router.get("/Editar/", controladores.verEditarResena);
+router.post("/Editar", controladores.confirmarEditarResena);
 router.get("/login", controladores.login);
 router.post("/login", controladores.usuarioLogin);
 
