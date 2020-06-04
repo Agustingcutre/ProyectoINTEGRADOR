@@ -10,6 +10,7 @@
         
       <script src="/javascripts/menu-nav.js"></script>
   <link rel="stylesheet" href="/stylesheets/responsive-volti.css" type="text/css">
+  <link rel="stylesheet" href="/stylesheets/misresenas.css" type="text/css">
   
       
       <title> Volti </title>
@@ -98,18 +99,21 @@
       <p>Ve a la pelicula que quieras y haz una!</p>
       
         <% } else {  %> 
-          <h1>Estas son tus reviews:</h1>
-          <div class="Reviews">
-            <div>
-              <% for( i = 0; i < resultados.length; i++){ %>
-                <div> <%=resultados[i].resena%> </div>
-                <div>Puntaje: <%=resultados[i].puntaje%></div>
-                <div><a href="/detalleSerie?idPeli=<%=resultados[i].peliculaID%>"> Pelicula</a> </div>
-                <div><a href="/Editar/:id"> Edit</a> </div>
-                <div><a href="/Delete/<%=resultados[i].id%>"> Delete</a> </div>
-              <%}%>
-              </div>
-          </div>
+          <h1 id="cater">Estas son tus reviews:</h1>
+      <div id="box">
+      <div class="Reviews">
+      <div id="manu">
+        <% for( i = 0; i < resultados.length; i++){ %>
+          <div> <%=resultados[i].resena%> </div>
+          <div id="cater">Puntaje: <%=resultados[i].puntaje%></div>
+          <div><a id="cater" href="/detalleSerie?idPeli=<%=resultados[i].peliculaID%>"> Pelicula</a> </div>
+          <div><a href="/misResenas/Edit" id="cater"> Edit</a> </div>
+          <div><a href="/" id="cater"> Delete</a> </div>
+        <%}%>
+        </div>
+    </div>
+            
+  </div>
       <%  }%>
  
     
