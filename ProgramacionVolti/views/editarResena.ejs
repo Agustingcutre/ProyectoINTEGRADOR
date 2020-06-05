@@ -1,0 +1,30 @@
+<%- include('./partials/header')%>
+
+<h1>Editar Reseña  </h1>
+<form class="logIn" name="editarResenia" action="/misResenas/edit/<%= resultados.id %>" method="post">
+  <p><input class="email" type="email" name="email" value="" placeholder="Escriba su email"></p>
+  <p><input type="password" name="password" placeholder="Escriba su contraseña"></p>
+  <p> <textarea name="resena" id="" cols="50" rows="15" placeholder="Edite su nueva reseña aquí"></textarea></p>
+  <p><label for="puntaje">Puntaje:</label></p>
+  <p>  <select name="puntaje">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+  </p>
+
+
+
+
+
+
+  <p><button type="submit"  >Editar reseña</button></p>
+
+</form>

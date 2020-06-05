@@ -1,0 +1,22 @@
+<%- include('./partials/header')%>
+
+
+<div>
+    <div>
+        <form action="/misResenas/delete/<%= deleteID %>">
+        <h1>Delete</h1>
+        <p>Confirma que queres eliminar esta resena</p>
+    </div>
+</div>
+<div>
+    <label for="">Email</label><br>
+    <input type="email" name="email">
+
+</div>
+<div>
+    <label for="">Contrasena</label><br>
+    <input type="password" name="password">
+
+    <button type="submit"> Confirmar</button>
+
+</form>

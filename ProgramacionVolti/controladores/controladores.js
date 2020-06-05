@@ -8,7 +8,7 @@ let bcrypt = require("../node_modules/bcryptjs");
 
 const controladores = {
 
-  
+
     listaGeneros : function (req,res) {
         res.render('listaGeneros')
     },
@@ -30,7 +30,7 @@ const controladores = {
     },
 registrarUsuario : function(req,res) {
     let passEncriptada = bcrypt.hashSync(req.body.password, 10);
-    
+
     db.usuarios.create({
         nombreCompleto: req.body.nombreCompleto,
         email: req.body.email,
@@ -39,9 +39,17 @@ registrarUsuario : function(req,res) {
     });
     res.redirect("/")
 },
+
+
+
+
     buscadorDeUsuarios : function(req,res) {
         res.render("buscadorDeUsuarios")
     },
+
+
+
+
     crearResena : function(req,res) {
         moduloLogin.validar(req.body.email, req.body.password)
         .then(function(resultado){
@@ -53,42 +61,103 @@ registrarUsuario : function(req,res) {
                 fechaDeActualizacion: db.sequelize.literal("CURRENT_DATE"),
                 peliculaID: req.body.idPeli,
             })
-          
+
 
         })
         .then(function(){
             res.redirect("/")
         })
     },
+
+
+
+
     misResenas : function(req,res) {
         res.render("misResenas")
     },
-    verEditarResena : function(req,res) {
-        db.resena.findOne({
-            where: [
-                {id : req.params.id}
-            ]
-        })
-        .then(resultados =>{
-            res.render("editarResena", {resultados : resultados})
-        })
 
 
 
+
+    mostrarEdit : function(req,res) {
+db.resenas.findOne({
+    where: [
+        {id : req.params.id}
+    ]
+})
+.then(resultados =>{
+    res.render("editarResena", {resultados : resultados})
+})
     },
-    confirmarEditarResena : function(req,res) {
-       
 
 
 
-    },
+
+
+confirmarEdit : function(req,res) {
+    moduloLogin.validar(req.body.email, req.body.password)
+    .then(resultado => {
+        if(resultado != undefined) {
+            db.resenas.update({
+                resena: req.body.resena,
+                puntaje: req.body.puntaje,
+            }, {
+                where: {
+                    id: req.params.id,
+                }
+            })
+            .then( editado => {
+                res.redirect("/login")
+            })
+        } else {
+            return res.redirect("/misResenas/edit/" + req.params.id)
+        }
+    });
+},
+
+
+
+
+
+borrarResena: function(req,res) {
+res.render("borrarResena", {deleteID: req.params.id})
+},
+
+
+
+
+
+confirmarBorrarResena : function(req,res) {
+moduloLogin.validar(req.body.email, req.body.password)
+.then(resultados =>{
+    if (resultados != null){
+        db.resenas.destroy({
+            where: {
+                id: req.params.id,
+            }
+        })
+        res.redirect("/login")
+    } else {
+        res.send("No has podido eliminar la resena")
+    }
+})
+},
+
+
+
+
+
     login : function(req,res) {
         res.render("misResenasLogin")
     },
+
+
+
+
     usuarioLogin : function(req,res) {
         moduloLogin.validar(req.body.email, req.body.password)
         .then(resultados=>{
-          
+
               db.resenas.findAll({
                   where: [
                       {usuarioID : resultados.id}
@@ -96,20 +165,20 @@ registrarUsuario : function(req,res) {
               })
               .then(resultados => {
                   console.log(resultados);
-                  
+
                   res.render("misResenas", {resultados: resultados})
-  
+
               })
 
-              
-          
-           
+
+
+
           })
-        
-          
-      
+
+
+
       }
-    
+
 
 
 }
