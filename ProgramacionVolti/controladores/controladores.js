@@ -1,6 +1,6 @@
 const db = require('../database/models');
 let sequelize = db.sequelize;
-let op = db.sequelize.Op;
+let op = db.Sequelize.Op;
 let moduloLogin = require('../modulo-login');
 let bcrypt = require("../node_modules/bcryptjs");
 
@@ -45,6 +45,38 @@ registrarUsuario : function(req,res) {
 
     buscadorDeUsuarios : function(req,res) {
         res.render("buscadorDeUsuarios")
+    },
+
+    resultadoDeUsuario: function(req,res) {
+        let buscado = req.query.searchUser
+        // console.log(buscado);
+        db.usuarios.findAll({
+            where: {
+                [op.or]: [
+                    { nombreCompleto: { [op.like]: "%" + buscado + "%"}},
+                    { email: { [op.like]: "%" + buscado + "%"}},
+                    
+                ]
+                 }})
+        .then (function(resultado){
+            console.log(resultado);
+            
+            res.render("resultadoDeUsuario",{resultado:resultado,buscado:buscado})
+        })
+        
+    },
+
+    detalleUsuario: function(req,res) {
+        let id = req.query.usuario
+        db.usuarios.findByPk(id, {
+            include : [
+                {association: 'resenas'}
+            ]
+        }
+            )
+        .then (function(resultado){
+            res.render('detalleUsuario', {resultado:resultado})
+        })
     },
 
 

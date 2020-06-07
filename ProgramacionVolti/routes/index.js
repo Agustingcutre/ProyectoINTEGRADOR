@@ -23,6 +23,7 @@ router.get("/registrarse", controladores.registrarse);
 router.post("/registrarse", controladores.registrarUsuario);
 
 router.get("/buscadorDeUsuarios", controladores.buscadorDeUsuarios);
+router.get("/resultadoDeUsuario", controladores.resultadoDeUsuario);
 
 router.get("/misResenas", controladores.misResenas);
 
@@ -37,6 +38,8 @@ router.get("/misResenas/delete/:id", controladores.borrarResena); // Formulario 
 router.post("/misResenas/delete/:id", controladores.confirmarBorrarResena); // Proceso que confirma la eliminacion de la resena
 
 router.get("/login", controladores.login);
+
+router.get("/detalleUsuario", controladores.detalleUsuario);
 
 router.post("/login", controladores.usuarioLogin);
 
