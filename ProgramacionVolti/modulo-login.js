@@ -23,11 +23,12 @@ let moduloLogin = {
         })
     },
 
-    validar: function (email, pass) {
+    validar: function (email, password) {
         return db.usuarios.findOne({
             where:{
                 email:email,
-                password: pass
+                password: password
+            
             },
         })
         .then(resultado=>{
@@ -35,6 +36,7 @@ let moduloLogin = {
         })
     }
 }
+
 
 
 module.exports = moduloLogin;
